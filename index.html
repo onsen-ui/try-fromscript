@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Try FromsCript</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/vue-material.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/vue-material@beta/dist/theme/default.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/lodash"></script>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-material@beta"></script>
+  <script src="fsc.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <md-card>
+      <md-card-header>
+        <h1 class="md-title">Try FromsCript!</h1>
+      </md-card-header>
+      <md-card-content>
+        <p class="md-body">
+          Execボタンはトランスパイルされたコードをevalで実行します。<br>
+          (コンソールにコードをコピペしたときと同等の動作をします。)<br>
+          実行後はコンソールを確認してください。
+        </p>
+        <md-button class="md-accent" @click="clear">Clear</md-button>
+        <md-button @click="document">Document</md-button>
+        <md-button @click="snippet">Snippet</md-button>
+        <md-button @click="hello">Hello, FromC!</md-button>
+        <md-button class="md-primary" @click="evaluate">Exec</md-button>
+        <p class="md-body" style="color: red;">{{ message }}</p>
+        <div id="editor">
+          <textarea :value="input" @input="update" ref="inputtextarea"></textarea>
+          <div>{{ transpiled }}</div>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
